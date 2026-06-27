@@ -1,170 +1,112 @@
-# MERN Stack Task Tracker
+# 📝 MERN Task Tracker - Premium Edition
 
-![MERN Stack](https://img.shields.io/badge/MERN-Stack-blue.svg)
-![React](https://img.shields.io/badge/React-19-61dafb.svg?logo=react)
-![Node.js](https://img.shields.io/badge/Node.js-22-339933.svg?logo=node.js)
-![Express](https://img.shields.io/badge/Express.js-000000.svg?logo=express)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248.svg?logo=mongodb)
+A beautiful, production-ready Task Tracker built with the MERN stack (MongoDB, Express, React, Node.js). Designed with a premium Glassmorphism UI, this application allows users to elegantly manage their daily tasks with full CRUD functionality, dynamic sorting, filtering, and responsive design.
 
-A modern, responsive, and robust Task Tracker application built from the ground up using the MERN stack (MongoDB, Express, React, Node.js). 
+![Dashboard Preview](placeholder-screenshot.png)
 
-This application provides a seamless, single-page experience for managing projects with advanced filtering, real-time sorting, metric dashboards, and beautiful CSS-module driven UI components.
+## ✨ Features
 
----
+- **Premium UI:** Glassmorphism design, dark mode, smooth micro-animations.
+- **Full CRUD:** Create, Read, Update, and Delete tasks.
+- **Advanced Filtering & Sorting:** Filter by status, priority, and due date. Sort dynamically without backend hits.
+- **Dynamic Dashboard:** Real-time metrics for total, pending, in-progress, and completed tasks.
+- **Production Ready:** Optimized React rendering (`React.memo`), strict API validation, and graceful error handling.
+- **Responsive:** Fluid layout that transitions to a bottom-navbar on mobile devices.
 
-## Features
+## 🚀 Tech Stack
 
-*   **Dynamic Dashboard**: Real-time statistical metric cards (Total, Pending, In Progress, Completed, High Priority).
-*   **Advanced Filtering & Sorting**: Combinable filters (Status, Priority, Due Date) and 6 different sorting algorithms implemented seamlessly on the frontend.
-*   **Instant Search**: Client-side title search that updates the DOM instantly without server roundtrips.
-*   **Full CRUD Functionality**: Create, Read, Update, and Delete tasks via a unified RESTful API.
-*   **Smooth UX/UI**: Animated skeleton loaders, sliding toast notifications, custom SVG empty states, and glassmorphism modals.
-*   **Responsive Design**: CSS Grid and Flexbox layouts optimized for mobile, tablet, and desktop environments.
+- **Frontend:** React 19, Vite, React Router DOM, Vanilla CSS Modules
+- **Backend:** Node.js, Express, Mongoose
+- **Database:** MongoDB Atlas (or local)
+- **Deployment:** Vercel (Frontend), Render (Backend)
 
----
+## 🛠️ Local Installation
 
-## Screenshots
+### Prerequisites
+- Node.js (v18+)
+- MongoDB running locally or a MongoDB Atlas URI
 
-> *Replace the placeholder URLs below with links to actual screenshots of your application.*
-
-| Dashboard View | Task Edit Modal |
-| :---: | :---: |
-| ![Dashboard Placeholder](https://via.placeholder.com/600x350.png?text=Dashboard+Screenshot) | ![Edit Modal Placeholder](https://via.placeholder.com/600x350.png?text=Modal+Screenshot) |
-
----
-
-## Folder Structure
-
-The project utilizes a decoupled architecture, separating the client and server into distinct directories.
-
-```text
-Coll-edge/
-│
-├── backend/                  # Express.js REST API
-│   ├── src/
-│   │   ├── config/           # Database and env configs (db.js)
-│   │   ├── controllers/      # Route logic (taskController.js)
-│   │   ├── middlewares/      # Error handling (errorMiddleware.js)
-│   │   ├── models/           # Mongoose schemas (Task.js)
-│   │   ├── routes/           # Express routing (taskRoutes.js)
-│   │   └── index.js          # Express app entry point
-│   ├── .env                  # Backend environment variables
-│   └── package.json
-│
-└── frontend/                 # React SPA (Vite)
-    ├── src/
-    │   ├── api/              # Axios service instances (taskService.js)
-    │   ├── assets/           # Static media (empty.png)
-    │   ├── components/       # Reusable UI (Modals, Cards, Skeletons)
-    │   ├── hooks/            # Custom React hooks (useTasks.js)
-    │   ├── pages/            # Routable views (Home, TaskList)
-    │   ├── App.jsx           # React Router configuration
-    │   ├── index.css         # Global styles & keyframe animations
-    │   └── main.jsx          # React entry point
-    ├── vercel.json           # Vercel SPA routing configuration
-    ├── .env                  # Frontend environment variables
-    └── package.json
+### 1. Clone the repository
+```bash
+git clone https://github.com/tanmays2k6/colledge.git
+cd colledge
 ```
 
----
-
-## Environment Variables
-
-To run this project locally, you will need to create `.env` files in both the `frontend` and `backend` directories.
-
-### Backend (`backend/.env`)
+### 2. Backend Setup
+```bash
+cd backend
+npm install
+```
+Create a `.env` file based on `.env.example`:
 ```env
 PORT=5000
+MONGO_URI=mongodb://localhost:27017/task-tracker
 NODE_ENV=development
-MONGO_URI=mongodb://localhost:27017/taskTracker
 FRONTEND_URL=http://localhost:5173
 ```
+Start the backend server:
+```bash
+npm run dev
+```
 
-### Frontend (`frontend/.env`)
+### 3. Frontend Setup
+```bash
+cd ../frontend
+npm install
+```
+Create a `.env` file based on `.env.example`:
 ```env
 VITE_API_URL=http://localhost:5000/api
 ```
+Start the frontend application:
+```bash
+npm run dev
+```
 
----
+## 🌍 Environment Variables (Production)
 
-## Installation & Setup
+When deploying to production, ensure these variables are set in your hosting provider's dashboard.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
-   ```
+**Backend (Render):**
+- `PORT`: (Render sets this automatically)
+- `MONGO_URI`: Your MongoDB Atlas connection string.
+- `NODE_ENV`: `production`
+- `FRONTEND_URL`: Your deployed Vercel domain (e.g., `https://my-app.vercel.app`)
 
-2. **Install Backend Dependencies**
-   ```bash
-   cd backend
-   npm install
-   ```
+**Frontend (Vercel):**
+- `VITE_API_URL`: Your deployed Render backend URL appended with `/api` (e.g., `https://my-api.onrender.com/api`)
 
-3. **Install Frontend Dependencies**
-   ```bash
-   cd ../frontend
-   npm install
-   ```
+## 🌐 Deployment Instructions
 
-4. **Start the Development Servers**
-   *Open two terminal windows/tabs.*
-   
-   **Terminal 1 (Backend):**
-   ```bash
-   cd backend
-   npm run dev
-   ```
-   
-   **Terminal 2 (Frontend):**
-   ```bash
-   cd frontend
-   npm run dev
-   ```
+### One-Click Deploy Frontend (Vercel)
+1. Push this repository to your GitHub account.
+2. Log into [Vercel](https://vercel.com/) and click **Add New > Project**.
+3. Import this GitHub repository.
+4. Set the **Framework Preset** to `Vite`.
+5. Set the **Root Directory** to `frontend`.
+6. Add the Environment Variable `VITE_API_URL` pointing to your deployed backend.
+7. Click **Deploy**.
 
-5. **Open the App**
-   Navigate to `http://localhost:5173` in your browser.
-
----
-
-## API Documentation
-
-The backend REST API is served on `/api/tasks`. All requests and responses communicate in `application/json`.
-
-| Method | Endpoint | Description | Body / Params |
-| :--- | :--- | :--- | :--- |
-| **GET** | `/api/tasks` | Fetch all tasks | N/A |
-| **GET** | `/api/tasks/:id` | Fetch a single task by ID | URL Param: `id` |
-| **POST** | `/api/tasks` | Create a new task | `{ title*, description, status, priority, dueDate }` |
-| **PUT** | `/api/tasks/:id` | Update an existing task | `{ title, description, status, priority, dueDate }` |
-| **DELETE** | `/api/tasks/:id` | Delete a task | URL Param: `id` |
-
-> *\* Denotes a required field.*
-
----
-
-## Deployment Guide
-
-### Deploying the Backend (Render)
-1. Sign up for [Render.com](https://render.com).
-2. Create a new **Web Service** and connect your GitHub repository.
+### One-Click Deploy Backend (Render)
+1. Log into [Render](https://render.com/) and click **New > Web Service**.
+2. Connect your GitHub repository.
 3. Set the **Root Directory** to `backend`.
-4. Set Build Command: `npm install` and Start Command: `npm start`.
-5. Add the backend Environment Variables (`MONGO_URI`, `NODE_ENV=production`).
-6. Deploy and copy your new live URL (e.g., `https://my-backend.onrender.com`).
+4. Set the **Build Command** to `npm install`.
+5. Set the **Start Command** to `npm start`.
+6. Add all required Environment Variables (see above).
+7. Click **Create Web Service**.
 
-### Deploying the Frontend (Vercel)
-1. Sign up for [Vercel](https://vercel.com).
-2. Add a **New Project** and import your GitHub repository.
-3. Set the **Root Directory** to `frontend`.
-4. Vercel will automatically detect Vite. Set the Build Command to `npm run build`.
-5. Add the Environment Variable: `VITE_API_URL` pointing to your new Render backend URL + `/api` (e.g., `https://my-backend.onrender.com/api`).
-6. Deploy! The included `vercel.json` will automatically handle React Router rewrites.
+## 📡 API Endpoints
 
-*(Optional but Recommended)*: Go back to Render and set `FRONTEND_URL` to your new Vercel domain to lock down CORS.
+The backend exposes a standard REST API at `/api/tasks`.
 
----
+| Method | Endpoint | Description | Request Body |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/health` | Server Health Check | None |
+| `GET` | `/api/tasks` | Fetch all tasks | None |
+| `POST` | `/api/tasks` | Create a new task | `{ title, description, priority, status, dueDate }` |
+| `PUT` | `/api/tasks/:id` | Update an existing task | `{ title, description, priority, status, dueDate }` |
+| `DELETE` | `/api/tasks/:id` | Delete a task | None |
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 📄 License
+MIT License
