@@ -1,0 +1,117 @@
+.homeLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+}
+
+.createBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(129, 140, 248, 0.4);
+  transition: all var(--transition-fast);
+}
+
+.createBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(129, 140, 248, 0.6);
+}
+
+.content {
+  flex: 1;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.successMessage, .errorMessage {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  z-index: 9999;
+  box-shadow: var(--shadow-lg);
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  backdrop-filter: blur(10px);
+}
+
+.successMessage {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.errorMessage {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(100%) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .createBtn span {
+    display: none;
+  }
+  .createBtn {
+    padding: 0.75rem;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    z-index: 90;
+    width: 56px;
+    height: 56px;
+    justify-content: center;
+  }
+  .createBtn svg {
+    width: 24px;
+    height: 24px;
+  }
+}

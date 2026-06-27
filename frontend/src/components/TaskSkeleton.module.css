@@ -1,0 +1,80 @@
+.skeletonCard {
+  background: var(--surface-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 180px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleLine {
+  height: 20px;
+  width: 60%;
+  background: #e2e8f0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.badgeLine {
+  height: 24px;
+  width: 60px;
+  background: #e2e8f0;
+  border-radius: 12px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.descLine {
+  height: 12px;
+  width: 100%;
+  background: #f1f5f9;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.descLineShort {
+  height: 12px;
+  width: 70%;
+  background: #f1f5f9;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.statusLine {
+  height: 16px;
+  width: 100px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.actionsLine {
+  height: 24px;
+  width: 60px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}

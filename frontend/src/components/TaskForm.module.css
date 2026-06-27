@@ -1,0 +1,114 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 0.5rem;
+}
+
+.formTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.inputGroup input,
+.inputGroup textarea,
+.inputGroup select {
+  width: 100%;
+  padding: 0.75rem 0;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all var(--transition-fast);
+  border-radius: 0; /* Remove default iOS rounding */
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus,
+.inputGroup select:focus {
+  outline: none;
+  border-bottom-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.inputGroup input::placeholder,
+.inputGroup textarea::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.inputGroup select {
+  cursor: pointer;
+}
+
+.inputGroup select option {
+  background: var(--bg-color);
+  color: var(--text-main);
+}
+
+.row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.row > .inputGroup {
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.submitBtn, .cancelBtn {
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+}
+
+.submitBtn {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(129, 140, 248, 0.3);
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(129, 140, 248, 0.5);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancelBtn {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+
+.cancelBtn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+}
